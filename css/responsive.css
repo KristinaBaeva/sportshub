@@ -1,0 +1,136 @@
+/* Планшеты и небольшие ноутбуки */
+@media (max-width: 992px) {
+  .hero__title {
+      font-size: 2.8rem;
+  }
+  
+  .hero__subtitle {
+      font-size: 1.3rem;
+  }
+  
+  .features {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .feature {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px 0;
+  }
+  
+  .contacts__content,
+  .order__content {
+      grid-template-columns: 1fr;
+  }
+  
+  .contacts__map {
+      height: 300px;
+  }
+}
+
+/* Планшеты в портретной ориентации */
+@media (max-width: 768px) {
+  .nav__list {
+      position: fixed;
+      top: 80px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 80px);
+      background-color: var(--bg-darker);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 999;
+  }
+  
+  .nav__list.active {
+      left: 0;
+  }
+  
+  .nav__item {
+      margin: 15px 0;
+  }
+  
+  .burger-menu {
+      display: block;
+  }
+  
+  .burger-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .burger-menu.active span:nth-child(2) {
+      opacity: 0;
+  }
+  
+  .burger-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  .hero__title {
+      font-size: 2.5rem;
+  }
+  
+  .section-title {
+      font-size: 2rem;
+  }
+  
+  .catalog__filters {
+      flex-direction: column;
+      align-items: stretch;
+  }
+  
+  .chatbot__window {
+      width: 300px;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 576px) {
+  .hero {
+      height: 70vh;
+  }
+  
+  .hero__title {
+      font-size: 2rem;
+  }
+  
+  .hero__subtitle {
+      font-size: 1.1rem;
+  }
+  
+  .section-title {
+      font-size: 1.8rem;
+  }
+  
+  .products-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .footer__bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+  }
+  
+  .footer__social {
+      justify-content: center;
+  }
+  
+  .chatbot {
+      bottom: 20px;
+      right: 20px;
+  }
+  
+  .chatbot__toggle {
+      width: 50px;
+      height: 50px;
+  }
+  
+  .chatbot__window {
+      width: 280px;
+      max-height: 400px;
+  }
+}

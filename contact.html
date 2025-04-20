@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - SPORTSHUB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">SPORTS<span class="logo--accent">HUB</span></a>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                        <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+                        <li class="nav__item"><a href="contact.html" class="nav__link active">Контакты</a></li>
+                        <li class="nav__item"><a href="order.html" class="nav__link">Заказ</a></li>
+                        <li class="nav__item"><button id="language-toggle" class="btn btn--small">EN</button></li>
+                    </ul>
+                </nav>
+                <button class="burger-menu" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="contacts">
+            <div class="container">
+                <h1 class="section-title">Контакты</h1>
+                
+                <div class="contacts__content">
+                    <div class="contacts__info">
+                        <h2 class="contacts__subtitle">Наши контакты</h2>
+                        <p><strong>Адрес:</strong> Москва, ул. Спортивная, 15</p>
+                        <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                        <p><strong>Email:</strong> info@sportshub.ru</p>
+                        <p><strong>Часы работы:</strong> Пн-Пт: 10:00-20:00, Сб-Вс: 11:00-18:00</p>
+                        
+                        <h2 class="contacts__subtitle">Форма обратной связи</h2>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Ваше имя</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Отправить</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contacts__map">
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1234567890abcdef&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Такой же footer как в index.html -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__col">
+                    <h3 class="footer__title">SPORTSHUB</h3>
+                    <p class="footer__text">Инновационная спортивная одежда для профессионалов и энтузиастов</p>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Контакты</h3>
+                    <p class="footer__text">Москва, ул. Спортивная, 15</p>
+                    <p class="footer__text">+7 (495) 123-45-67</p>
+                    <p class="footer__text">info@sportshub.ru</p>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Меню</h3>
+                    <ul class="footer__list">
+                        <li><a href="index.html" class="footer__link">Главная</a></li>
+                        <li><a href="catalog.html" class="footer__link">Каталог</a></li>
+                        <li><a href="contact.html" class="footer__link">Контакты</a></li>
+                        <li><a href="order.html" class="footer__link">Заказ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2023 SPORTSHUB. Все права защищены.</p>
+                <div class="footer__social">
+                    <a href="#" class="social__link">Instagram</a>
+                    <a href="#" class="social__link">Telegram</a>
+                    <a href="#" class="social__link">VK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Такой же чат-бот как в index.html -->
+    <div class="chatbot">
+        <button class="chatbot__toggle">
+            <img src="images/chatbot-icon.svg" alt="Чат-бот">
+        </button>
+        <div class="chatbot__window">
+            <div class="chatbot__header">
+                <h3>SPORTSHUB Assistant</h3>
+                <button class="chatbot__close">×</button>
+            </div>
+            <div class="chatbot__messages" id="chatbot-messages">
+                <div class="chatbot__message chatbot__message--bot">
+                    Привет! Я ваш виртуальный помощник. Чем могу помочь?
+                </div>
+            </div>
+            <div class="chatbot__input">
+                <input type="text" placeholder="Введите ваш вопрос..." id="chatbot-input">
+                <button id="chatbot-send">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
