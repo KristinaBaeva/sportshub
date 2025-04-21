@@ -35,7 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Инициализация формы заказа
   if (document.getElementById('order-form')) {
       setupOrderForm();
-      loadOrderItems();
+      // Fetch and cache products before loading order items
+      fetchAndCacheProducts().then(() => {
+          loadOrderItems();
+      });
   }
 });
 
@@ -157,6 +160,22 @@ function applyFilters() {
   });
 }
 
+// Cached products list
+let cachedProducts = [];
+
+// Fetch products and cache them
+function fetchAndCacheProducts() {
+  return fetchProducts().then(products => {
+    cachedProducts = products;
+    return products;
+  });
+}
+
+// Get product by id from cached products
+function getProductById(id) {
+  return cachedProducts.find(product => product.id === id) || {};
+}
+
 // Настройка формы заказа
 function setupOrderForm() {
   const orderForm = document.getElementById('order-form');
@@ -166,13 +185,52 @@ function setupOrderForm() {
   orderForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Здесь будет отправка формы
-      alert('Заказ оформлен! Мы свяжемся с вами для подтверждения.');
+      const name = document.getElementById('order-name').value.trim();
+      const phone = document.getElementById('order-phone').value.trim();
+      const email = document.getElementById('order-email').value.trim();
+      const address = document.getElementById('order-address').value.trim();
+      const comment = document.getElementById('order-comment').value.trim();
+      const delivery = document.querySelector('input[name="delivery"]:checked')?.value || '';
+      const payment = document.querySelector('input[name="payment"]:checked')?.value || '';
+      const cart = getCart();
       
-      // Очистка корзины
-      clearCart();
-      loadOrderItems();
-      this.reset();
+      if (!name || !phone || !email || !address) {
+          alert('Пожалуйста, заполните все обязательные поля.');
+          return;
+      }
+      
+      if (cart.length === 0) {
+          alert('Ваша корзина пуста.');
+          return;
+      }
+      
+      const orderData = {
+          customer: { name, phone, email, address },
+          cart,
+          delivery,
+          payment,
+          comment
+      };
+      
+      fetch('submit_order.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert('Заказ успешно оформлен! Номер заказа: ' + data.orderId);
+              clearCart();
+              loadOrderItems();
+              orderForm.reset();
+          } else {
+              alert('Ошибка при оформлении заказа: ' + (data.error || 'Неизвестная ошибка'));
+          }
+      })
+      .catch(error => {
+          alert('Ошибка при отправке заказа: ' + error.message);
+      });
   });
   
   // Обновление стоимости доставки при изменении способа
@@ -202,7 +260,7 @@ function loadOrderItems() {
       const orderItem = document.createElement('div');
       orderItem.className = 'order-item';
       orderItem.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" class="order-item__image">
+          <img src="${product.image_url || product.image}" alt="${product.name}" class="order-item__image">
           <div class="order-item__details">
               <h4 class="order-item__title">${product.name}</h4>
               <div class="order-item__price">${product.price.toLocaleString('ru-RU')} ₽ × ${item.quantity}</div>
@@ -267,6 +325,10 @@ function addToCart(productId) {
   
   saveCart(cart);
   showCartNotification();
+  // Reload order items if on order page
+  if (document.getElementById('order-items')) {
+    loadOrderItems();
+  }
 }
 
 function removeFromCart(productId) {

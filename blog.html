@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Блог - SPORTSHUB</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        .blog-article {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+        .blog-article img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 1rem;
+            border-radius: 4px;
+        }
+        .blog-article-content {
+            max-width: 800px;
+        }
+        .blog-article h2 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .blog-article p {
+            margin: 0 0 0.5rem 0;
+        }
+        .btn--small {
+            font-size: 0.875rem;
+            padding: 0.4rem 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">SPORTS<span class="logo--accent">HUB</span></a>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                        <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+                        <li class="nav__item"><a href="contact.html" class="nav__link">Контакты</a></li>
+                        <li class="nav__item"><a href="order.html" class="nav__link">Заказ</a></li>
+                        <li class="nav__item"><a href="blog.html" class="nav__link active">Блог</a></li>
+                        <li class="nav__item"><button id="language-toggle" class="btn btn--small">EN</button></li>
+                    </ul>
+                </nav>
+                <button class="burger-menu" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="blog">
+            <div class="container">
+                <h1 class="section-title">Блог SPORTSHUB</h1>
+                <article class="blog-article">
+                    <img src="images/blog1.jpg" alt="Технологии в спортивной одежде" />
+                    <div class="blog-article-content">
+                        <h2>Технологии в спортивной одежде: что нового?</h2>
+                        <p>Современные технологии позволяют создавать спортивную одежду, которая улучшает производительность и комфорт спортсменов. В этой статье мы рассмотрим последние инновации в материалах и дизайне.</p>
+                        <a href="#" class="btn btn--small btn--primary">Читать далее</a>
+                    </div>
+                </article>
+                <article class="blog-article">
+                    <img src="images/blog2.jpg" alt="Как выбрать правильный размер" />
+                    <div class="blog-article-content">
+                        <h2>Как выбрать правильный размер спортивной одежды</h2>
+                        <p>Выбор правильного размера — залог комфорта и эффективности тренировок. Узнайте, на что обратить внимание при покупке спортивной одежды.</p>
+                        <a href="#" class="btn btn--small btn--primary">Читать далее</a>
+                    </div>
+                </article>
+                <article class="blog-article">
+                    <img src="images/blog3.jpg" alt="Экологичность в спортивной индустрии" />
+                    <div class="blog-article-content">
+                        <h2>Экологичность в спортивной индустрии</h2>
+                        <p>Все больше брендов обращают внимание на экологичность производства. Мы расскажем, как SPORTSHUB внедряет устойчивые практики в свою продукцию.</p>
+                        <a href="#" class="btn btn--small btn--primary">Читать далее</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__col">
+                    <h3 class="footer__title">SPORTSHUB</h3>
+                    <p class="footer__text">Инновационная спортивная одежда для профессионалов и энтузиастов</p>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Контакты</h3>
+                    <p class="footer__text">Москва, ул. Спортивная, 15</p>
+                    <p class="footer__text">+7 (495) 123-45-67</p>
+                    <p class="footer__text">info@sportshub.ru</p>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Меню</h3>
+                    <ul class="footer__list">
+                        <li><a href="index.html" class="footer__link">Главная</a></li>
+                        <li><a href="catalog.html" class="footer__link">Каталог</a></li>
+                        <li><a href="contact.html" class="footer__link">Контакты</a></li>
+                        <li><a href="order.html" class="footer__link">Заказ</a></li>
+                        <li><a href="blog.html" class="footer__link active">Блог</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2023 SPORTSHUB. Все права защищены.</p>
+                <div class="footer__social">
+                    <a href="#" class="social__link">Instagram</a>
+                    <a href="#" class="social__link">Telegram</a>
+                    <a href="#" class="social__link">VK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
